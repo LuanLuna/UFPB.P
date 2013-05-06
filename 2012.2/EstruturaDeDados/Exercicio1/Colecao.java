@@ -17,8 +17,8 @@ public class Colecao {
 	
 	public void add(String E){
 		if(indiceVazio < elementos.length && (elementos[indiceVazio] == null)){
-			elementos[indiceVazio] = E;
-			indiceVazio ++;
+			elementos[indiceVazio ++] = E;
+			
 		}
 		else if(indiceVazio < elementos.length && (elementos[indiceVazio] != null)){
 			elementos[this.buscaIndiceNull()] = E;
@@ -75,9 +75,9 @@ public class Colecao {
 			int i = posicao;
 			while(valor != null){
 				temp = elementos[i];
-				elementos[i] = valor;
+				elementos[i++] = valor;
 				valor = temp;
-				i++;
+				
 			}
 		}
 	}

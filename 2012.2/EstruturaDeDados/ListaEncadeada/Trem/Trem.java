@@ -55,7 +55,7 @@ public class Trem {
 	}
 	
 	private boolean verificaListaVazia(){
-		if(this.getCabeca() == null ){
+		if(this.cabeca == null ){
 			System.out.println(">>A lista está vazia");
 			return true;
 		}
@@ -167,21 +167,7 @@ public class Trem {
 		return false;
 		
 	}
-	public No getCabeca() {
-		return cabeca;
-	}
-
-	public void setCabeca(No cabeca) {
-		this.cabeca = cabeca;
-	}
-
-	public No getCalda() {
-		return calda;
-	}
-
-	public void setCalda(No calda) {
-		this.calda = calda;
-	}
+	
 
 	public int getQuantNos() {
 		return quantNos;

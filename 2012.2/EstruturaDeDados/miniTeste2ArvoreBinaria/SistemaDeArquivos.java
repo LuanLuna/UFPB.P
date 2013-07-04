@@ -14,10 +14,10 @@ public class SistemaDeArquivos {
 		if(raiz==null){
 			return 0;
 		}
-		return RecEspacoOcupadoEmDisco(raiz);
+		return tamanhoTotal(raiz);
 	}
 	
-	private double RecEspacoOcupadoEmDisco(Diretorio d){
+	private double tamanhoTotal(Diretorio d){
 		double tamanhoTotal = 0;
 		if(d.getArquivos().size() > 0){		
 			for(Arquivo i: d.getArquivos()){
@@ -27,7 +27,7 @@ public class SistemaDeArquivos {
 		if(d.getSubDiretorios().size() > 0){
 			for(Diretorio i: d.getSubDiretorios()){
 				d = i;
-				tamanhoTotal += RecEspacoOcupadoEmDisco(d);
+				tamanhoTotal += tamanhoTotal(d);
 			}
 		}
 				

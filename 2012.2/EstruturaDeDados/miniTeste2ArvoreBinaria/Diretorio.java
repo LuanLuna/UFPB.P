@@ -6,19 +6,31 @@ import java.util.List;
 public class Diretorio {
 	private String nome;
 	private Diretorio pai;
-	private List<Diretorio> filhos;
+	private List<Diretorio> subdiretorios = new LinkedList<Diretorio>();
+	private List<Arquivo> arquivos = new LinkedList<Arquivo>();
 	
 	public Diretorio(String nome) {
 		this.nome = nome;
-		this.filhos = new LinkedList<Diretorio>();
+		this.subdiretorios = new LinkedList<Diretorio>();
 	}
 	
-	public Diretorio criarSubDiretorio(String nome){
-		Diretorio d = new Diretorio(nome);
-		d.setPai(this);
-		filhos.add(d);
-		return d;
+	public void setArquivos(List<Arquivo> arquivos) {
+		this.arquivos = arquivos;
 	}
+
+	public void addSubDiretorio(Diretorio diretorio){
+		this.subdiretorios.add(diretorio);
+		diretorio.setPai(this);
+	}
+	
+	public List<Arquivo> getArquivos() {
+		return arquivos;
+	}
+
+	public void addArquivo(Arquivo arquivo){
+		arquivos.add(arquivo);
+	}
+	
 	
 	public String getNome() {
 		return nome;
@@ -37,11 +49,11 @@ public class Diretorio {
 	}
 
 	public List<Diretorio> getSubDiretorios() {
-		return filhos;
+		return subdiretorios;
 	}
 
-	public void setFilhos(List<Diretorio> filhos) {
-		this.filhos = filhos;
+	public void setSubDiretorios(List<Diretorio> filhos) {
+		this.subdiretorios = filhos;
 	}
 
 }

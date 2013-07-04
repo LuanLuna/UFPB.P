@@ -13,7 +13,6 @@ public class Arvore implements Comparador{
 			temp = raiz;
 			return;
 		}
-		
 		if(comparadorMaiorQ(valor)){
 			if(temp.getFilhoDireita() != null){
 				temp = temp.getFilhoDireita();
@@ -25,7 +24,6 @@ public class Arvore implements Comparador{
 				System.out.println(valor);
 			}
 		}
-		
 		else{if(raiz == null){
 			raiz = novo;
 			System.out.println(valor);
@@ -43,10 +41,9 @@ public class Arvore implements Comparador{
 			}
 		}
 		temp = raiz;
-		
 	}
 	
-	public boolean contem(String valor, NoTree no){
+	/*public boolean contem(String valor, NoTree no){
 		boolean c2 = false, c1 = false;
 		if(no != null){
 			
@@ -62,6 +59,27 @@ public class Arvore implements Comparador{
 			
 		}
 		return c1 || c2;
+		
+		
+	}*/
+	
+	
+	public boolean contem(String valor, NoTree no){
+		boolean c = false;
+		if(no != null){
+			
+			if(no.getValor().equalsIgnoreCase(valor)){
+				return true;
+			}
+			if(comparadorMaiorQ(valor) == true && no.getFilhoDireita() != null){
+				c = contem(valor, no.getFilhoDireita());
+			}
+			else if(comparadorMaiorQ(valor) == false && no.getFilhoEsquerda() != null){
+				c = contem(valor, no.getFilhoEsquerda());
+			}
+			
+		}
+		return c;
 		
 		
 	}
